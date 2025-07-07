@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Authenticator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app-wrapper" class="hidden">
+        <header>
+            <h1>Authenticator</h1>
+            <div id="timer-display"><div class="progress-bar"></div></div>
+        </header>
+
+        <main id="accounts-container"></main>
+
+        <div class="fab-container">
+            <div id="fab-menu" class="fab-menu hidden">
+                <button class="fab-menu-item" data-action="manual" title="Manual Entry"><i class="fas fa-keyboard"></i></button>
+                <button class="fab-menu-item" data-action="import" title="Import Bitwarden File"><i class="fas fa-file-import"></i></button>
+            </div>
+            <button id="fab" class="fab-main"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content"></div>
+    </div>
+
+    <div id="add-account-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Add Account Manually</h2>
+            <input type="text" id="manual-issuer" placeholder="Account Name (e.g., Google, GitHub)">
+            <input type="text" id="manual-secret" placeholder="e.g., JBSW Y3DP EHPK 3PXP">
+            <p class="help-text">Paste the Base32 secret key provided by the service.</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" data-action="cancel">Cancel</button>
+                <button class="btn-primary" data-action="add">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="action-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Edit Account</h2>
+            <input type="text" id="edit-issuer" placeholder="Account Name">
+            <div class="modal-actions">
+                <button class="btn-danger" data-action="delete">Delete</button>
+                <div class="modal-actions-right">
+                    <button class="btn-secondary" data-action="copy-code">Copy Code</button>
+                    <button class="btn-primary" data-action="save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="confirm-title">Are you sure?</h2>
+            <p id="confirm-message">This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" data-action="cancel">Cancel</button>
+                <button class="btn-danger" data-action="confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <input type="file" id="import-file-input" class="hidden" accept=".json">
+</body>
+</html>

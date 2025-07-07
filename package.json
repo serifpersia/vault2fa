@@ -1,0 +1,25 @@
+{
+  "name": "web-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serifpersia/web-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serifpersia/web-auth/issues"
+  },
+  "homepage": "https://github.com/serifpersia/web-auth#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "otplib": "^12.0.1"
+  }
+}
