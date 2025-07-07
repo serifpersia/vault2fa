@@ -1,4 +1,8 @@
-# Vault2FA
+<div align="center">
+
+# vault2fa
+
+</div>
 
 ![image](https://github.com/user-attachments/assets/bb38ad77-c0a8-4ae7-ab1a-729c078cdf81)
 
